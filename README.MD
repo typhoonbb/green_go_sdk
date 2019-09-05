@@ -4,7 +4,7 @@
 
 `go get github.com/typhoonbb/green_go_sdk`
 
-### useage
+### Useage
 ````
 profile := green_client.Profile{AccessKeyId: "your accessid", AccessKeySecret:"your key"}
 
@@ -16,7 +16,7 @@ profile := green_client.Profile{AccessKeyId: "your accessid", AccessKeySecret:"y
 	bizType := "Green"
 	scenes := []string{"antispam"}
 
-	task := green_client.Task{DataId: udid.Rand().Hex(), Content:"sds"}
+	task := green_client.Task{DataId: udid.Rand().Hex(), Content:"your content..."}
 	tasks := []green_client.Task{task}
 
 	bizData := green_client.BizData{bizType, scenes, tasks}
