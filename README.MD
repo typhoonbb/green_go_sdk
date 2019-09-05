@@ -1,15 +1,18 @@
 ## Aliyun green go sdk
 
+### Installation
 
-#useage
+`go get github.com/typhoonbb/green_go_sdk`
+
+###useage
 ````
-profile := green_client.Profile{AccessKeyId: accessKeyId, AccessKeySecret:accessKeySecret}
+profile := green_client.Profile{AccessKeyId: "your accessid", AccessKeySecret:"your key"}
 
 	path := "/green/text/scan"
 
 	clientInfo := green_client.ClientInfo{}
 
-	// 构造请求数据
+	// request data
 	bizType := "Green"
 	scenes := []string{"antispam"}
 
