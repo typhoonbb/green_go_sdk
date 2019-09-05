@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"green_go_sdk/sdk"
+	"github.com/typhoonbb/green_go_sdk/green_client"
+	"github.com/typhoonbb/green_go_sdk/udid"
 )
 
 const accessKeyId string = "xxx"
@@ -10,22 +11,22 @@ const accessKeySecret string = "xxx"
 
 
 func main(){
-	profile := sdk.Profile{AccessKeyId: accessKeyId, AccessKeySecret:accessKeySecret}
+	profile := green_client.Profile{AccessKeyId: accessKeyId, AccessKeySecret:accessKeySecret}
 
 	path := "/green/text/scan"
 
-	clientInfo := sdk.ClinetInfo{}
+	clientInfo := green_client.ClientInfo{}
 
 	// 构造请求数据
 	bizType := "Green"
 	scenes := []string{"antispam"}
 
-	task := sdk.Task{DataId: sdk.Rand().Hex(), Content:"sds"}
-	tasks := []sdk.Task{task}
+	task := green_client.Task{DataId: udid.Rand().Hex(), Content:"sds"}
+	tasks := []green_client.Task{task}
 
-	bizData := sdk.BizData{bizType, scenes, tasks}
+	bizData := green_client.BizData{bizType, scenes, tasks}
 
-	var client sdk.IAliYunClient = sdk.DefaultClient{Profile: profile}
+	var client green_client.IAliYunClient = green_client.DefaultClient{Profile: profile}
 
 	// your biz code
 	fmt.Println(client.GetResponse(path, clientInfo, bizData))

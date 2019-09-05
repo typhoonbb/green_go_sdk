@@ -1,4 +1,4 @@
-package sdk
+package green_client
 
 type Profile struct {
 	AccessKeyId string

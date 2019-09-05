@@ -1,6 +1,6 @@
-package sdk
+package green_client
 
-type ClinetInfo struct {
+type ClientInfo struct {
 	SdkVersion 	string	`json:"sdkVersion"`
 	CfgVersion 	string	`json:"cfgVersion"`
 	UserType 	string	`json:"userType"`

@@ -1,19 +1,19 @@
-package sdk
+package green_client
 
 import (
-	"net/http"
 	"encoding/json"
+	"io/ioutil"
+	"net/http"
 	"net/url"
 	"strings"
-	"io/ioutil"
 )
 
 type DefaultClient struct {
-	Profile Profile;
+	Profile Profile
 }
 
-func (defaultClient DefaultClient) GetResponse(path string, clinetInfo ClinetInfo, bizData BizData) string{
-	clientInfoJson, _ := json.Marshal(clinetInfo)
+func (defaultClient DefaultClient) GetResponse(path string, clientInfo ClientInfo, bizData BizData) string{
+	clientInfoJson, _ := json.Marshal(clientInfo)
 	bizDataJson, _ := json.Marshal(bizData)
 
 	client := &http.Client{}
@@ -30,7 +30,7 @@ func (defaultClient DefaultClient) GetResponse(path string, clinetInfo ClinetInf
 		defer response.Body.Close()
 
 		body, err := ioutil.ReadAll(response.Body)
-		if(err != nil) {
+		if err != nil {
 			// handle error
 			return ErrorResult(err)
 		} else {
@@ -40,5 +40,5 @@ func (defaultClient DefaultClient) GetResponse(path string, clinetInfo ClinetInf
 }
 
 type IAliYunClient interface {
-	GetResponse(path string, clinetInfo ClinetInfo, bizData BizData) string
+	GetResponse(path string, clientInfo ClientInfo, bizData BizData) string
 }

@@ -1,4 +1,4 @@
-package sdk
+package udid
 
 import (
 	crand "crypto/rand"

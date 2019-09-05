@@ -1,15 +1,15 @@
-package sdk
+package green_client
 
 import (
+	"bytes"
 	"crypto/hmac"
+	"crypto/md5"
 	"crypto/sha1"
 	"encoding/base64"
 	"encoding/json"
+	"github.com/typhoonbb/green_go_sdk/udid"
 	"net/http"
-	"bytes"
-	"crypto/md5"
 	"time"
-
 )
 
 const host string = "http://green.cn-shanghai.aliyuncs.com"
@@ -28,7 +28,7 @@ func addRequestHeader(requestBody string, req *http.Request, clientInfo string, 
 	base64Md5Str := base64.StdEncoding.EncodeToString(cipherStr)
 
 	acsHeaderKeyArray := []string{"x-acs-signature-method", "x-acs-signature-nonce", "x-acs-signature-version", "x-acs-version"}
-	acsHeaderValueArray := []string{"HMAC-SHA1", Rand().Hex(), "1.0", "2017-01-12"}
+	acsHeaderValueArray := []string{"HMAC-SHA1", udid.Rand().Hex(), "1.0", "2017-01-12"}
 
 	req.Header.Set("Accept", MIME)
 	req.Header.Set("Content-Type", MIME)
