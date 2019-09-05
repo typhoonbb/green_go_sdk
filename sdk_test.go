@@ -1,4 +1,4 @@
-package main
+package green_go_sdk
 
 import (
 	"fmt"
