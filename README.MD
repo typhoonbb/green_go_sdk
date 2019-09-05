@@ -4,7 +4,7 @@
 
 `go get github.com/typhoonbb/green_go_sdk`
 
-###useage
+### useage
 ````
 profile := green_client.Profile{AccessKeyId: "your accessid", AccessKeySecret:"your key"}
 
