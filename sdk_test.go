@@ -4,13 +4,14 @@ import (
 	"fmt"
 	"github.com/typhoonbb/green_go_sdk/green_client"
 	"github.com/typhoonbb/green_go_sdk/udid"
+	"testing"
 )
 
 const accessKeyId string = "xxx"
 const accessKeySecret string = "xxx"
 
 
-func main(){
+func TestTextScan(t *testing.T) {
 	profile := green_client.Profile{AccessKeyId: accessKeyId, AccessKeySecret:accessKeySecret}
 
 	path := "/green/text/scan"
